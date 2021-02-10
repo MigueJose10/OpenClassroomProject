@@ -24,8 +24,10 @@ app = Flask(
 
 model = pickle.load(open('model_lr.sav', 'rb'))
 data = pd.read_csv('data_model_red.csv', index_col='index')
-data_stat =pd.read_csv('data_dashboard.csv', index_col='SK_ID_CURR')
+data_stat = pd.read_csv('data_dashboard.csv', index_col='SK_ID_CURR')
 #data_stat_imp = imputer.fit(data_stat)
+
+
 @app.route('/predict/<int:client_id>')
 def predict(client_id):
     x =data.loc[client_id].values.reshape(1, -1)
@@ -37,6 +39,9 @@ def predict(client_id):
     return render_template('dashboard.html', client_id=client_id, pred=pred, proba_pay=proba_pay )
 
 
+@app.route('/')
+def hello():
+    return 'Scoring Model Home'
 
 if __name__ == "__main__":
-    app.run(debug=True)
+    app.run(debug=True, host='0.0.0.0')
