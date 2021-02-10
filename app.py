@@ -25,7 +25,7 @@ app = Flask(
 model = pickle.load(open('model_lr.sav', 'rb'))
 data = pd.read_csv('data_model_red.csv', index_col='index')
 data_stat = pd.read_csv('data_dashboard.csv', index_col='SK_ID_CURR')
-data_stat_imp = imputer.fit(data_stat)
+#data_stat_imp = imputer.fit(data_stat)
 
 
 @app.route('/predict/<int:client_id>')
