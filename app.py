@@ -22,9 +22,9 @@ app = Flask(
     static_url_path='/static', static_folder='static',
     template_folder='templates')
 
-model = pickle.load(open('/Users/migueljosebernalmora/P7_Bernal_Miguel/model_lr.sav', 'rb'))
+model = pickle.load(open('model_lr.sav', 'rb'))
 data = pd.read_csv('data_model_red.csv', index_col='index')
-data_stat =pd.read_csv('/Users/migueljosebernalmora/P7_Bernal_Miguel/data_dashboard.csv', index_col='SK_ID_CURR')
+data_stat =pd.read_csv('data_dashboard.csv', index_col='SK_ID_CURR')
 data_stat_imp = imputer.fit(data_stat)
 @app.route('/predict/<int:client_id>')
 def predict(client_id):
