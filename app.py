@@ -4,6 +4,7 @@ import pickle
 from sklearn.linear_model import LogisticRegression
 from sklearn.metrics import confusion_matrix, precision_recall_curve, auc, roc_auc_score, precision_score, roc_curve, recall_score, classification_report
 from sklearn.metrics import make_scorer
+from sklearn.impute import SimpleImputer
 import pandas as pd
 
 def cost(truth, preds):
@@ -24,7 +25,7 @@ app = Flask(
 model = pickle.load(open('/Users/migueljosebernalmora/P7_Bernal_Miguel/model_lr.sav', 'rb'))
 data = pd.read_csv('data_model_red.csv', index_col='index')
 data_stat =pd.read_csv('/Users/migueljosebernalmora/P7_Bernal_Miguel/data_dashboard.csv', index_col='SK_ID_CURR')
-
+data_stat_imp = imputer.fit(data_stat)
 @app.route('/predict/<int:client_id>')
 def predict(client_id):
     x =data.loc[client_id].values.reshape(1, -1)
