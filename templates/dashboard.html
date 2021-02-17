@@ -10,7 +10,7 @@
     <script src="https://code.highcharts.com/modules/wordcloud.js"></script>
     <link rel="stylesheet" type="text/css" href="https://cdn.rawgit.com/novus/nvd3/v1.8.1/build/nv.d3.css">
     <script src="https://cdn.anychart.com/releases/8.9.0/js/anychart-base.min.js"></script>
-    
+
 
 
 <script src='https://cdn.plot.ly/plotly-latest.min.js'></script>
@@ -38,7 +38,7 @@
                   <text class="chartTitle">         Prediction_paiement_reussite_clients </text>
                   <p>            Le client {{ client_id }} aura une probabilité de reussite de remboursement de {{ proba_pay }} %
                   <p>            Pour changer de client saisir le id aprés predict/ sur la bar de navigation html
-                  <p>            1) Bar Plot qui montre les 10 premier clients avec plus de paiements.
+                  <p>            1) Bar Plot qui montre les 10 premier clients avec plus de paiements, plus la quantité de paiements qui correspond a votre identifiant.
                   <p>            2) Box Plot Descriptive pour montrer le changement de probailité en fonction d'age des clients
                   <p>            3) Box Plot Descriptive pour montrer changement probabilité en fonction d'un source externe normalisée
                   <p>            4) Box Plot Descriptive pour montrer changement probabilité en fonction d'un  deuxieme source externe normalisée
@@ -409,7 +409,8 @@ var data_bar = [
   ["ID_418081", 332],
   ["ID_192083", 324],
   ["ID_434807", 323],
-  ["ID_217360", 318]
+  ["ID_217360", 318],
+  ["ID_{{client_id}}", {{curr_client_count}}]
 ];
 
 // create a chart
