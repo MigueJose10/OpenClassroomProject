@@ -25,8 +25,8 @@ app = Flask(
 model = pickle.load(open('model_lr.sav', 'rb'))
 data = pd.read_csv('data_model_red.csv', index_col='index')
 data_stat = pd.read_csv('data_dashboard.csv', index_col='SK_ID_CURR')
+counts_read = pd.read_csv('installements.csv', index_col='index')
 
-## Scatter plot data
 
 with open('result.json') as json_file:
     result = json.load(json_file)
@@ -39,10 +39,15 @@ def predict(client_id):
     pred = model.predict(x)[0]
     proba_pay = model.predict_proba(x)[0][0]*100
     proba_pay = f'{proba_pay:.4}'
-    print(proba_pay)
-    print(result)
+    curr_client_count = counts_read.loc[client_id][0]
 
-    return render_template('dashboard.html', client_id=client_id, pred=pred, proba_pay=proba_pay, result=json.dumps(result))
+    print(proba_pay)
+    #print(result)
+    print(curr_client_count)
+
+    return render_template(
+        'dashboard.html', client_id=client_id, pred=pred, proba_pay=proba_pay,
+        result=json.dumps(result), curr_client_count=curr_client_count)
 
 
 @app.route('/')
