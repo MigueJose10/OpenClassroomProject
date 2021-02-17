@@ -4,15 +4,16 @@
     <meta charset="UTF-8" />
     <title>Mon premier dashboard</title>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-    <link rel="stylesheet" type="text/css" href="/static/dashboard.css">
     <script src="https://d3js.org/d3.v3.min.js"></script>
     <script src="https://cdn.rawgit.com/novus/nvd3/v1.8.1/build/nv.d3.min.js"></script>
     <script src="https://code.highcharts.com/highcharts.js"></script>
     <script src="https://code.highcharts.com/modules/wordcloud.js"></script>
-
     <link rel="stylesheet" type="text/css" href="https://cdn.rawgit.com/novus/nvd3/v1.8.1/build/nv.d3.css">
-    <script src="/static/mydashboard.js"></script>
+    <script src="https://cdn.anychart.com/releases/8.9.0/js/anychart-base.min.js"></script>
+    
 
+
+<script src='https://cdn.plot.ly/plotly-latest.min.js'></script>
   </head>
 
   <body>
@@ -22,147 +23,425 @@
         <div class="header-background"></div>
         <div class="title">
           <h1>
-            Mon dashboard
+           Dashboard Scoring Paiement Credit
           </h1>
         </div>
       </header>
 
       <main>
-        <div class="chartContainer">
+        <div>
 
-          <div id="actu" class="chart">
-              <div id="nuage">
+          <div>
+              <div>
               </div>
-              <div id="listeArticles">
-                  <text class="chartTitle">prediction_client</text>
-                  <p>le client {{ client_id }} va payer avec une probabilité {{ proba_pay }} %
-                  <div id="tableauArticles"></div>
+              <div>
+                  <text class="chartTitle">         Prediction_paiement_reussite_clients </text>
+                  <p>            Le client {{ client_id }} aura une probabilité de reussite de remboursement de {{ proba_pay }} %
+                  <p>            Pour changer de client saisir le id aprés predict/ sur la bar de navigation html
+                  <p>            1) Bar Plot qui montre les 10 premier clients avec plus de paiements.
+                  <p>            2) Box Plot Descriptive pour montrer le changement de probailité en fonction d'age des clients
+                  <p>            3) Box Plot Descriptive pour montrer changement probabilité en fonction d'un source externe normalisée
+                  <p>            4) Box Plot Descriptive pour montrer changement probabilité en fonction d'un  deuxieme source externe normalisée
+                  <p>            5) Box Plot Descriptive pour montrer changement probabilité en fonction d'un  troisieme source externe normalisée
+
+                  <div></div>
               </div>
           </div>
 
-          <div id="meteo" class="chart">
-            <div class="container">
-<h1>Bootstrap Table</h1>
-<p> Mémo pour les options du Bootstrap Table : <a href="http://bootstrap-table.wenzhixin.net.cn/documentation/">Bootstrap Table Documentation</a></p>
-<p>Eléments de Bootstrap Table utilisés : <a href="http://jsfiddle.net/wenyi/e3nk137y/3178/">Data Checkbox</a>, pour cocher les éléments à sélectionner, <a href="https://github.com/wenzhixin/bootstrap-table-examples/blob/master/extensions/filter-control.html">extension Filter control</a>, pour les filtres via les colonnes, <a href="https://github.com/kayalshri/tableExport.jquery.plugin">extension Data export</a> pour exporter</p>
-
-<div id="toolbar">
-  <select class="form-control">
-      <option value="">Export Basic</option>
-      <option value="all">Export All</option>
-      <option value="selected">Export Selected</option>
-  </select>
-</div>
-
-<table id="table"
-     data-toggle="table"
-     data-search="true"
-     data-filter-control="true"
-     data-show-export="true"
-     data-click-to-select="true"
-     data-toolbar="#toolbar">
-<thead>
-  <tr>
-    <th data-field="state" data-checkbox="true"></th>
-    <th data-field="prenom" data-filter-control="input" data-sortable="true">Prénom</th>
-    <th data-field="date" data-filter-control="select" data-sortable="true">Date</th>
-    <th data-field="examen" data-filter-control="select" data-sortable="true">Examen</th>
-    <th data-field="note" data-sortable="true">Note</th>
-  </tr>
-</thead>
-<tbody>
-  <tr>
-    <td class="bs-checkbox "><input data-index="0" name="btSelectItem" type="checkbox"></td>
-    <td>Valérie</td>
-    <td>01/09/2015</td>
-    <td>Français</td>
-    <td>12/20</td>
-  </tr>
-  <tr>
-    <td class="bs-checkbox "><input data-index="1" name="btSelectItem" type="checkbox"></td>
-    <td>Eric</td>
-    <td>05/09/2015</td>
-    <td>Philosophie</td>
-    <td>8/20</td>
-  </tr>
-  <tr>
-    <td class="bs-checkbox "><input data-index="2" name="btSelectItem" type="checkbox"></td>
-    <td>Valentin</td>
-    <td>05/09/2015</td>
-    <td>Philosophie</td>
-    <td>4/20</td>
-  </tr>
-  <tr>
-    <td class="bs-checkbox "><input data-index="3" name="btSelectItem" type="checkbox"></td>
-    <td>Valérie</td>
-    <td>05/09/2015</td>
-    <td>Philosophie</td>
-    <td>10/20</td>
-  </tr>
-  <tr>
-    <td class="bs-checkbox "><input data-index="4" name="btSelectItem" type="checkbox"></td>
-    <td>Eric</td>
-    <td>01/09/2015</td>
-    <td>Français</td>
-    <td>14/20</td>
-  </tr>
-  <tr>
-    <td class="bs-checkbox "><input data-index="5" name="btSelectItem" type="checkbox"></td>
-    <td>Valérie</td>
-    <td>07/09/2015</td>
-    <td>Mathématiques</td>
-    <td>19/20</td>
-  </tr>
-  <tr>
-    <td class="bs-checkbox "><input data-index="6" name="btSelectItem" type="checkbox"></td>
-    <td>Valentin</td>
-    <td>01/09/2015</td>
-    <td>Français</td>
-    <td>11/20</td>
-  </tr>
-  <tr>
-    <td class="bs-checkbox "><input data-index="7" name="btSelectItem" type="checkbox"></td>
-    <td>Eric</td>
-    <td>01/10/2015</td>
-    <td>Philosophie</td>
-    <td>8/20</td>
-  </tr>
-  <tr>
-    <td class="bs-checkbox "><input data-index="8" name="btSelectItem" type="checkbox"></td>
-    <td>Valentin</td>
-    <td>07/09/2015</td>
-    <td>Mathématiques</td>
-    <td>14/20</td>
-  </tr>
-  <tr>
-    <td class="bs-checkbox "><input data-index="9" name="btSelectItem" type="checkbox"></td>
-    <td>Valérie</td>
-    <td>01/10/2015</td>
-    <td>Philosophie</td>
-    <td>12/20</td>
-  </tr>
-  <tr>
-    <td class="bs-checkbox "><input data-index="10" name="btSelectItem" type="checkbox"></td>
-    <td>Eric</td>
-    <td>07/09/2015</td>
-    <td>Mathématiques</td>
-    <td>14/20</td>
-  </tr>
-  <tr>
-  <td class="bs-checkbox "><input data-index="11" name="btSelectItem" type="checkbox"></td>
-    <td>Valentin</td>
-    <td>01/10/2015</td>
-    <td>Philosophie</td>
-    <td>10/20</td>
-  </tr>
-</tbody>
-</table>
-</div>
+            <div>
+            <div id="container" style="width: 1100px; height: 400px;"></div>
+            </div>
           </div>
+          	<div id='bar_chart' style="width: 1100px; height: 400px;"></div>
 
         </div>
       </main>
     </div>
+    <script>
+    anychart.onDocumentReady(function () {
+        var data = [{'x': '(21.0, 28.0]',
+    'low': '22.62',
+    'q1': '81.65',
+    'median': '89.32',
+    'q3': '93.78',
+    'high': '99.7'},
+    {'x': '(28.0, 32.0]',
+    'low': '28.44',
+    'q1': '86.23',
+    'median': '92.1',
+    'q3': '95.5',
+    'high': '99.73'},
+    {'x': '(32.0, 36.0]',
+    'low': '27.1',
+    'q1': '88.02',
+    'median': '93.23',
+    'q3': '96.2',
+    'high': '99.67'},
+    {'x': '(36.0, 39.0]',
+    'low': '25.92',
+    'q1': '89.48',
+    'median': '94.04',
+    'q3': '96.6',
+    'high': '99.86'},
+    {'x': '(39.0, 43.0]',
+    'low': '28.87',
+    'q1': '90.58',
+    'median': '94.61',
+    'q3': '96.89',
+    'high': '99.8'},
+    {'x': '(43.0, 47.0]',
+    'low': '36.52',
+    'q1': '90.55',
+    'median': '94.59',
+    'q3': '96.84',
+    'high': '99.74'},
+    {'x': '(47.0, 52.0]',
+    'low': '30.22',
+    'q1': '91.14',
+    'median': '94.88',
+    'q3': '97.01',
+    'high': '99.81'},
+    {'x': '(52.0, 56.0]',
+    'low': '26.06',
+    'q1': '92.21',
+    'median': '95.5',
+    'q3': '97.35',
+    'high': '99.85'},
+    {'x': '(56.0, 61.0]',
+    'low': '48.39',
+    'q1': '93.19',
+    'median': '96.0',
+    'q3': '97.61',
+    'high': '99.83'},
+    {'x': '(61.0, 69.0]',
+    'low': '42.95',
+    'q1': '94.16',
+    'median': '96.54',
+    'q3': '97.87',
+    'high': '99.81'}];
+
+        // create a chart
+        chart = anychart.box();
+
+        // create a box series and set the data
+        series = chart.box(data);
+        // set chart title
+        chart.title("Box Plot: Probabilité de Remboursement % vs Age (ans)");
+
+        // set the titles of the axes
+        chart.xAxis().title("Age (ans)");
+        chart.yAxis().title("Probabilité de Remboursement %");
+
+        // set the container id
+        chart.container("container");
+
+        // initiate drawing the chart
+        chart.interactivity().selectionMode('multiSelect');
+        chart.draw();
+
+        });
+        </script>
+  <script>
+    anychart.onDocumentReady(function () {
+        var data_ext1= [{'x': '(0.0136, 0.213]',
+  'low': '25.91',
+  'q1': '78.94',
+  'median': '87.4',
+  'q3': '92.48',
+  'high': '99.19'},
+ {'x': '(0.213, 0.296]',
+  'low': '24.95',
+  'q1': '84.28',
+  'median': '90.69',
+  'q3': '94.48',
+  'high': '99.51'},
+ {'x': '(0.296, 0.369]',
+  'low': '31.67',
+  'q1': '87.05',
+  'median': '92.32',
+  'q3': '95.35',
+  'high': '99.52'},
+ {'x': '(0.369, 0.438]',
+  'low': '39.26',
+  'q1': '88.49',
+  'median': '93.28',
+  'q3': '96.0',
+  'high': '99.59'},
+ {'x': '(0.438, 0.506]',
+  'low': '42.17',
+  'q1': '90.25',
+  'median': '94.12',
+  'q3': '96.52',
+  'high': '99.58'},
+ {'x': '(0.506, 0.573]',
+  'low': '42.38',
+  'q1': '91.32',
+  'median': '94.75',
+  'q3': '96.89',
+  'high': '99.7'},
+ {'x': '(0.573, 0.64]',
+  'low': '45.15',
+  'q1': '92.25',
+  'median': '95.45',
+  'q3': '97.24',
+  'high': '99.65'},
+ {'x': '(0.64, 0.71]',
+  'low': '42.41',
+  'q1': '93.29',
+  'median': '96.01',
+  'q3': '97.56',
+  'high': '99.72'},
+ {'x': '(0.71, 0.787]',
+  'low': '41.17',
+  'q1': '94.21',
+  'median': '96.54',
+  'q3': '97.9',
+  'high': '99.83'},
+ {'x': '(0.787, 0.963]',
+  'low': '48.03',
+  'q1': '95.55',
+  'median': '97.36',
+  'q3': '98.39',
+  'high': '99.75'}];
+
+        // create a chart
+        chart = anychart.box();
+
+        // create a box series and set the data
+        series = chart.box(data_ext1);
+        // set chart title
+        chart.title("Box Plot: Probabilité de Remboursement % vs EXT_SOURCE_1");
+
+        // set the titles of the axes
+        chart.xAxis().title("EXT_SOURCE_1");
+        chart.yAxis().title("Probabilité de Remboursement %");
+
+        // set the container id
+        chart.container("container");
+
+        // initiate drawing the chart
+        chart.interactivity().selectionMode('multiSelect');
+        chart.draw();
+
+        });
+
+  </script>
+
+<script>
+  anychart.onDocumentReady(function () {
+      var data_ext2= [{'x': '(0.000, 0.216]',
+  'low': '24.95',
+  'q1': '75.95',
+  'median': '84.65',
+  'q3': '90.54',
+  'high': '99.08'},
+ {'x': '(0.216, 0.34]',
+  'low': '30.61',
+  'q1': '83.69',
+  'median': '89.74',
+  'q3': '93.55',
+  'high': '99.43'},
+ {'x': '(0.34, 0.44]',
+  'low': '39.48',
+  'q1': '86.71',
+  'median': '91.7',
+  'q3': '94.79',
+  'high': '99.34'},
+ {'x': '(0.44, 0.512]',
+  'low': '43.08',
+  'q1': '89.25',
+  'median': '93.33',
+  'q3': '95.79',
+  'high': '99.63'},
+ {'x': '(0.512, 0.566]',
+  'low': '53.64',
+  'q1': '90.83',
+  'median': '94.29',
+  'q3': '96.4',
+  'high': '99.55'},
+ {'x': '(0.566, 0.608]',
+  'low': '52.47',
+  'q1': '92.04',
+  'median': '95.08',
+  'q3': '96.89',
+  'high': '99.75'},
+ {'x': '(0.608, 0.646]',
+  'low': '51.67',
+  'q1': '92.98',
+  'median': '95.65',
+  'q3': '97.28',
+  'high': '99.64'},
+ {'x': '(0.646, 0.682]',
+  'low': '57.81',
+  'q1': '93.87',
+  'median': '96.19',
+  'q3': '97.61',
+  'high': '99.69'},
+ {'x': '(0.682, 0.722]',
+  'low': '56.76',
+  'q1': '94.65',
+  'median': '96.7',
+  'q3': '97.92',
+  'high': '99.75'},
+ {'x': '(0.722, 0.855]',
+  'low': '63.85',
+  'q1': '95.71',
+  'median': '97.33',
+  'q3': '98.31',
+  'high': '99.83'}];
+
+      // create a chart
+      chart = anychart.box();
+
+      // create a box series and set the data
+      series = chart.box(data_ext2);
+      // set chart title
+      chart.title("Box Plot: Probabilité de Remboursement % vs EXT_SOURCE_2");
+
+      // set the titles of the axes
+      chart.xAxis().title("EXT_SOURCE_2");
+      chart.yAxis().title("Probabilité de Remboursement %");
+
+      // set the container id
+      chart.container("container");
+
+      // initiate drawing the chart
+      chart.interactivity().selectionMode('multiSelect');
+      chart.draw();
+
+      });
+</script>
+<script>
+  anychart.onDocumentReady(function () {
+      var data_ext3= [{'x': '(0.000, 0.228]',
+  'low': '24.95',
+  'q1': '74.92',
+  'median': '83.79',
+  'q3': '89.82',
+  'high': '98.74'},
+ {'x': '(0.228, 0.33]',
+  'low': '35.49',
+  'q1': '82.25',
+  'median': '88.89',
+  'q3': '93.03',
+  'high': '99.18'},
+ {'x': '(0.33, 0.408]',
+  'low': '31.67',
+  'q1': '86.3',
+  'median': '91.55',
+  'q3': '94.64',
+  'high': '99.32'},
+ {'x': '(0.408, 0.476]',
+  'low': '41.9',
+  'q1': '89.03',
+  'median': '93.16',
+  'q3': '95.67',
+  'high': '99.68'},
+ {'x': '(0.476, 0.535]',
+  'low': '49.49',
+  'q1': '90.85',
+  'median': '94.3',
+  'q3': '96.4',
+  'high': '99.65'},
+ {'x': '(0.535, 0.592]',
+  'low': '52.53',
+  'q1': '92.39',
+  'median': '95.29',
+  'q3': '96.99',
+  'high': '99.68'},
+ {'x': '(0.592, 0.643]',
+  'low': '62.43',
+  'q1': '93.49',
+  'median': '95.94',
+  'q3': '97.42',
+  'high': '99.75'},
+ {'x': '(0.643, 0.694]',
+  'low': '56.34',
+  'q1': '94.43',
+  'median': '96.5',
+  'q3': '97.74',
+  'high': '99.8'},
+ {'x': '(0.694, 0.749]',
+  'low': '70.75',
+  'q1': '95.32',
+  'median': '97.03',
+  'q3': '98.12',
+  'high': '99.77'},
+ {'x': '(0.749, 0.896]',
+  'low': '74.11',
+  'q1': '96.17',
+  'median': '97.63',
+  'q3': '98.47',
+  'high': '99.83'}];
+
+      // create a chart
+      chart = anychart.box();
+
+      // create a box series and set the data
+      series = chart.box(data_ext3);
+      // set chart title
+      chart.title("Box Plot: Probabilité de Remboursement % vs EXT_SOURCE_3");
+
+      // set the titles of the axes
+      chart.xAxis().title("EXT_SOURCE_3");
+      chart.yAxis().title("Probabilité de Remboursement %");
+
+      // set the container id
+      chart.container("container");
+
+      // initiate drawing the chart
+      chart.interactivity().selectionMode('multiSelect');
+      chart.draw();
+
+      });
+</script>
+<script>
+        // Bar Plot
+
+        // create data
+var data_bar = [
+  ["ID_145728", 372],
+  ["ID_296205", 350],
+  ["ID_453103", 347],
+  ["ID_189699", 344],
+  ["ID_186851", 337],
+  ["ID_17269", 336],
+  ["ID_418081", 332],
+  ["ID_192083", 324],
+  ["ID_434807", 323],
+  ["ID_217360", 318]
+];
+
+// create a chart
+chart = anychart.bar();
+
+// set chart title
+chart.title("Bar Plot: Clients avec plus de paiements");
+
+// X Axis title
+chart.xAxis().title('Clients avec plus de paiements');
+
+// Y Axis title
+chart.yAxis().title('Nombre de paiements');
+
+// create a bar series and set the data
+var series = chart.bar(data_bar);
+
+// set the container id
+chart.container("container");
+
+// initiate drawing the chart
+chart.draw();
+</script>
+
+<script>
+
+
+</script>
+
+
+
+
 
   </body>
 
